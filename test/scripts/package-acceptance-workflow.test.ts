@@ -4603,6 +4603,39 @@ wait_for_run plugin-clawhub-new.yml 123 "${expectedSha}" || status=$?
     expect(readFileSync(LIVE_E2E_WORKFLOW, "utf8")).toContain("live-cache attempt ${attempt}/2");
   });
 
+  it("keeps release history checks blobless", () => {
+    const fullHistoryCheckouts: Array<[string, string, string]> = [
+      [RELEASE_PUBLISH_WORKFLOW, "resolve_release_target", "Checkout release tag"],
+      [
+        RELEASE_CHECKS_WORKFLOW,
+        "resolve_target",
+        "Checkout selected ref for reachability fallback",
+      ],
+      [RELEASE_CHECKS_WORKFLOW, "prepare_release_package", "Checkout trusted workflow ref"],
+      [PACKAGE_ACCEPTANCE_WORKFLOW, "resolve_package", "Checkout package workflow ref"],
+      [PLUGIN_NPM_RELEASE_WORKFLOW, "preview_plugins_npm", "Checkout"],
+      [PLUGIN_CLAWHUB_RELEASE_WORKFLOW, "preview_plugins_clawhub", "Checkout"],
+      [PLUGIN_CLAWHUB_RELEASE_WORKFLOW, "pack_plugins_clawhub_artifacts", "Checkout"],
+      [OPENCLAW_NPM_RELEASE_WORKFLOW, "preflight_openclaw_npm", "Checkout"],
+      [OPENCLAW_NPM_RELEASE_WORKFLOW, "validate_publish_request", "Checkout"],
+      [
+        ".github/workflows/openclaw-cross-os-release-checks-reusable.yml",
+        "prepare",
+        "Checkout public source ref",
+      ],
+    ];
+
+    for (const [workflowPath, jobName, stepName] of fullHistoryCheckouts) {
+      expect(
+        workflowStep(workflowJob(workflowPath, jobName), stepName).with,
+        workflowPath,
+      ).toMatchObject({
+        "fetch-depth": 0,
+        filter: "blob:none",
+      });
+    }
+  });
+
   it("validates the macOS release handoff before the GitHub release page exists", () => {
     const macosRelease = readWorkflow(".github/workflows/macos-release.yml");
     const validateJob = workflowJob(
