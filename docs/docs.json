@@ -1353,6 +1353,7 @@
                 "group": "Tools",
                 "pages": [
                   "tools/apply-patch",
+                  "tools/ask-user",
                   "tools/btw",
                   "tools/code-execution",
                   "tools/diffs",
