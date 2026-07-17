@@ -1765,6 +1765,10 @@ export const ar: TranslationMap = {
       testingButton: "جارٍ الاختبار…",
       testing: "جارٍ الاختبار — يُطلب من {modelRef} رد سريع…",
     },
+    empty: {
+      title: "عمليات التثبيت الموصى بها",
+      intro: "لم يتم اكتشاف وصول حالي إلى الذكاء الاصطناعي. ثبّت إحدى هذه الأدوات ثم تحقق مرة أخرى.",
+    },
     unavailable: {
       title: "تم الاكتشاف، لكن لم يُختبر تلقائيًا",
     },
@@ -2306,6 +2310,13 @@ export const ar: TranslationMap = {
     session: "الجلسة",
     outputTruncated: "تم تنقيح المعاينة واقتطاعها.",
     noOutputPreview: "لا توجد معاينة للمخرجات.",
+    answerCandidate: {
+      title: "إجابة مرشحة",
+      itemId: "عنصر",
+      candidate: "الإجابة المرشحة",
+      superseded: "الإجابة المستبدلة",
+      selected: "الإجابة المحددة",
+    },
     status: {
       running: "قيد التشغيل",
       done: "مكتمل",
@@ -3700,6 +3711,11 @@ export const ar: TranslationMap = {
       pause: "إيقاف الهدف مؤقتًا",
       resume: "استئناف الهدف",
       clear: "مسح الهدف",
+    },
+    questions: {
+      title: "يحتاج Codex إلى إدخال",
+      other: "اكتب إجابة أخرى",
+      submit: "إرسال الإجابة",
     },
     messages: {
       activity: "النشاط",

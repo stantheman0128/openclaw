@@ -1783,6 +1783,11 @@ export const uk: TranslationMap = {
       testingButton: "Перевірка…",
       testing: "Тестування — просимо {modelRef} надати коротку відповідь…",
     },
+    empty: {
+      title: "Рекомендовані встановлення",
+      intro:
+        "Наявний доступ до AI не виявлено. Встановіть один із цих інструментів, потім перевірте знову.",
+    },
     unavailable: {
       title: "Виявлено, але не протестовано автоматично",
     },
@@ -2337,6 +2342,13 @@ export const uk: TranslationMap = {
     session: "Сеанс",
     outputTruncated: "Попередній перегляд відредаговано та обрізано.",
     noOutputPreview: "Попередній перегляд виводу недоступний.",
+    answerCandidate: {
+      title: "Варіант відповіді",
+      itemId: "Елемент",
+      candidate: "Варіант відповіді",
+      superseded: "Замінена відповідь",
+      selected: "Вибрана відповідь",
+    },
     status: {
       running: "Запущено",
       done: "Готово",
@@ -3742,6 +3754,11 @@ export const uk: TranslationMap = {
       pause: "Призупинити ціль",
       resume: "Відновити ціль",
       clear: "Очистити ціль",
+    },
+    questions: {
+      title: "Codex потребує введення",
+      other: "Ввести іншу відповідь",
+      submit: "Надіслати відповідь",
     },
     messages: {
       activity: "Активність",
