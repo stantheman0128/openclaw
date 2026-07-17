@@ -204,6 +204,8 @@ jobs:
           path: source
           fetch-depth: 0
           filter: blob:none
+          sparse-checkout: package.json
+          sparse-checkout-cone-mode: false
 
       - name: Resolve checked-out fallback SHA
         if: steps.fast_ref.outputs.fallback == 'true'

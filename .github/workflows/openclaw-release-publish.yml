@@ -402,6 +402,8 @@ jobs:
           ref: refs/tags/${{ inputs.tag }}
           fetch-depth: 0
           filter: blob:none
+          sparse-checkout: package.json
+          sparse-checkout-cone-mode: false
           persist-credentials: false
 
       - name: Resolve checked-out release ref
